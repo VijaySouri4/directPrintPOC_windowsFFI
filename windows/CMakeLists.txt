@@ -108,7 +108,7 @@ install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
   COMPONENT Runtime)
 
 # Include the cpp directory.
-include_directories("C:/Users/vijay/DirectPrintPOC/native_poc/cpp")
+include_directories("C:/Users/vijay/DirectPrintPOC/native_poc/windows/cpp")
 
 # Add printer.cpp to the project sources.
-list(APPEND PROJECT_SOURCES "C:/Users/vijay/DirectPrintPOC/native_poc/cpp/printer.cpp")
+list(APPEND PROJECT_SOURCES "C:/Users/vijay/DirectPrintPOC/native_poc/windows/cpp/printer.cpp")
