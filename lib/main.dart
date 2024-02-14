@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {
               final text = 'Hello, printer!'.toNativeUtf8();
-              PrinterBindings.printText(text);
+              //PrinterBindings.printText(text);
+              // ESCPOSPrinter.initializePrinter();
               calloc.free(text);
               print('pressed!');
             },

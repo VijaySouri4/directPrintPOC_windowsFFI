@@ -18,3 +18,45 @@ class PrinterBindings {
         .lookupFunction<PrintTextC, PrintTextDart>('printText');
   }
 }
+
+typedef ESCInitializePrinterC = ffi.Void Function();
+typedef ESCInitializePrinterDart = void Function();
+
+typedef ESCPrintTextC = ffi.Void Function(ffi.Pointer<Utf8>);
+typedef ESCPrintTextDart = void Function(ffi.Pointer<Utf8>);
+
+typedef ESCCutPaperC = ffi.Void Function();
+typedef ESCCutPaperDart = void Function();
+
+class ESCPOSPrinter {
+  late ffi.DynamicLibrary _lib;
+  late ESCInitializePrinterDart initializePrinter;
+  late ESCPrintTextDart escprintText;
+  late ESCCutPaperDart cutPaper;
+
+  ESCPOSPrinter() {
+    _lib = ffi.DynamicLibrary.open('escprinter.dll');
+
+    initializePrinter = _lib.lookupFunction<ESCInitializePrinterC, ESCInitializePrinterDart>('initializePrinter');
+    escprintText = _lib.lookupFunction<ESCPrintTextC, ESCPrintTextDart>('printText');
+    cutPaper = _lib.lookupFunction<ESCCutPaperC, ESCCutPaperDart>('cutPaper');
+    //     .lookup<ffi.NativeFunction<ESCInitializePrinterC>>('initialize_printer')
+    //     .asFunction<ESCInitializePrinterDart>();
+
+    // _printText = _lib
+    //     .lookup<ffi.NativeFunction<PrintTextC>>('print_text')
+    //     .asFunction<PrintTextDart>();
+
+    // _cutPaper = _lib
+    //     .lookup<ffi.NativeFunction<ESCCutPaperC>>('cut_paper')
+    //     .asFunction<ESCCutPaperDart>();
+  }
+
+  // void initializePrinter() => _initializePrinter();
+  // void escprintText(String text) {
+  //   final textPtr = text.toNativeUtf8();
+  //   _printText(textPtr);
+  //   calloc.free(textPtr);
+  // }
+  // void cutPaper() => _cutPaper();
+}
