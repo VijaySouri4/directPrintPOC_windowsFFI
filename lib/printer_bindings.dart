@@ -11,7 +11,7 @@ class PrinterBindings {
   static late PrintTextDart printText;
 
   static void loadLibrary() {
-    _library = ffi.DynamicLibrary.open('flut.dll');
+    _library = ffi.DynamicLibrary.open('flut_ANSI_new.dll');
     print('Dude I am in now, so at least the dll was loaded');
 
     printText = _library

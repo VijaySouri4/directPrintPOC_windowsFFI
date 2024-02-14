@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
               final text = 'Hello, printer!'.toNativeUtf8();
               PrinterBindings.printText(text);
               calloc.free(text);
+              print('pressed!');
             },
             child: const Text('Print Text'),
           ),

@@ -1,6 +1,8 @@
 // // windows/cpp/printer.cpp
+//#include "pch.h"
 #include "printer.h"
 #include <Windows.h>
+#include <winspool.h>
 #include <string>
 #include <cstring>
 
